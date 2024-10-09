@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Prediction</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    <div class="main">
+        <h1>Sales Prediction</h1>
+        <form method="POST" action="/sales">
+            <label for="tv">TV:</label><br>
+            <input type="number" id="tv" name="tv" required><br><br>
+            <label for="radio">Radio:</label><br>
+            <input type="number" id="radio" name="radio" required><br><br>
+            <label for="newspaper">Newspaper:</label><br>
+            <input type="number" id="newspaper" name="newspaper" required><br><br>
+            <button type="submit">Predict</button>
+        </form>
+
+        <div id="salesResult">
+            {% if prediction is not none %}
+                <p>Predicted Sales: <strong>{{ prediction }}</strong></p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
